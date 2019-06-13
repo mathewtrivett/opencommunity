@@ -1,0 +1,5 @@
+
+
+
+class Contact(object):
+    pass

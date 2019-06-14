@@ -37,3 +37,4 @@ class Phone(BaseModel):
     type = models.CharField(choices = PHONE_TYPES, default=VOICE, max_length=60)
     description = models.CharField(max_length=400)
     languages = models.ManyToManyField(Language)
+    contact = models.ForeignKey(Contact, on_delete = models.CASCADE)

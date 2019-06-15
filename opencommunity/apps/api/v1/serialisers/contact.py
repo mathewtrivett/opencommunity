@@ -1,6 +1,7 @@
 from rest_marshmallow import Schema, fields
 
 class PhoneSchema(Schema):
+    id = fields.UUID()
     number = fields.String()
     type = fields.String()
     extension = fields.String()

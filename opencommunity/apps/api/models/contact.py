@@ -1,6 +1,7 @@
 from .base import BaseModel
 from django.db import models
 from .language import Language
+from .organisation import Organisation
 
 """
 Contact should comply with the vCard format allowing for contacts
@@ -12,6 +13,7 @@ class Contact(BaseModel):
     title = models.CharField(max_length=255)
     department = models.CharField(max_length=255)
     email = models.EmailField()
+    organisation = models.ForeignKey(Organisation, on_delete= models.SET_NULL, null=True)
 
 class Phone(BaseModel):
     TEXT = 'text'
@@ -37,4 +39,4 @@ class Phone(BaseModel):
     type = models.CharField(choices = PHONE_TYPES, default=VOICE, max_length=60)
     description = models.CharField(max_length=400)
     languages = models.ManyToManyField(Language)
-    contact = models.ForeignKey(Contact, on_delete = models.CASCADE)
+    contact = models.ForeignKey(Contact, on_delete = models.CASCADE, null=True)

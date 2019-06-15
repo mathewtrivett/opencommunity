@@ -8,3 +8,11 @@ from .models.organisation import Organisation
 from .models.service import Service
 
 # Register your models here.
+
+class ContactInline(admin.TabularInline):
+    model = Contact
+
+class OrganisationAdmin(admin.ModelAdmin):
+    inlines = (ContactInline,)
+
+admin.site.register(Organisation, OrganisationAdmin)

@@ -1,5 +1,5 @@
 from .base import BaseModel, BasicDetails
-from django.contrib.gis.db import models
+from django.db import models
 
 class Location(BaseModel):
     name = models.CharField(max_length=255,blank=True)
@@ -7,7 +7,6 @@ class Location(BaseModel):
     description = models.TextField(blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    point = models.PointField()
     transportation = models.TextField()
 
 

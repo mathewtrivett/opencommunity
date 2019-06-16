@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
 
-    'opencommunity.apps.api',
-    'opencommunity.apps.users'
+    'api',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,7 @@ AUTH_USER_MODEL = 'users.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }

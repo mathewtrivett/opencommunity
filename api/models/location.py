@@ -9,6 +9,5 @@ class Location(BaseModel):
     longitude = models.FloatField()
     transportation = models.TextField()
 
-
 class ServiceArea(BaseModel):
     description = models.TextField()

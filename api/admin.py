@@ -6,6 +6,7 @@ from .models.language import Language
 from .models.location import Location, ServiceArea
 from .models.organisation import Organisation
 from .models.service import Service
+from .models.program import Program
 from .models.identification_body import IdentificationBody
 from .models.identifier import Identifier
 from .models.taxonomy import Taxonomy
@@ -15,6 +16,10 @@ from .models.taxonomy import Taxonomy
 class LanguageAdmin(admin.ModelAdmin):
     pass
 
+
+class ProgramInline(admin.StackedInline):
+    model = Program
+    extra = 0
 
 class IdentifierInline(admin.TabularInline):
     model = Identifier
@@ -35,7 +40,7 @@ class ContactInline(admin.StackedInline):
     inlines = (PhoneInline,)
 
 class OrganisationAdmin(admin.ModelAdmin):
-    inlines = (ContactInline, ServiceInline, IdentifierInline,)
+    inlines = (ContactInline, ServiceInline, IdentifierInline, )
     search_fields = ('name', 'alternate_name',)
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -51,6 +56,7 @@ class TaxonomyAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     autocomplete_fields = ('parent',)
     list_display = ('name', 'parent', 'vocabulary',)
+
 
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Organisation, OrganisationAdmin)

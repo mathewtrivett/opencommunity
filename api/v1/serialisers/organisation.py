@@ -3,6 +3,7 @@ from .base import BasicDetailsSchema
 from .services import ServiceSchema
 from .contacts import ContactSchema
 
+
 class OrganisationSchema(BasicDetailsSchema):
     email = fields.Email()
     url = fields.Url()

@@ -21,6 +21,10 @@ class ProgramInline(admin.StackedInline):
     model = Program
     extra = 0
 
+
+class EligibilityInline(admin.StackedInline):
+    model = Eligibility
+
 class IdentifierInline(admin.TabularInline):
     model = Identifier
     extra = 0
@@ -55,7 +59,7 @@ class IdentificationBodyAdmin(admin.ModelAdmin):
 class TaxonomyAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     autocomplete_fields = ('parent',)
-    list_display = ('name', 'parent', 'vocabulary',)
+    list_display = ('id','name', 'parent', 'vocabulary',)
 
 
 admin.site.register(Service, ServiceAdmin)

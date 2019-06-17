@@ -27,4 +27,4 @@ class Service(BasicDetails):
     taxonomy = models.ManyToManyField(Taxonomy, related_name='services')
     status = models.CharField(max_length=60, choices=STATUSES,default=ACTIVE)
     organisation = models.ForeignKey(Organisation, on_delete=models.CASCADE)
-    eligibility = models.OneToOneField(Eligibility, on_delete=models.CASCADE, null=True)
+    eligibility = models.OneToOneField(Eligibility, on_delete=models.CASCADE, null=True, related_name='service')
